@@ -1,0 +1,76 @@
+﻿<Window x:Name="Main_Window" x:Class="HarborSimulationExaminationWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HarborSimulationExaminationWPF"
+        mc:Ignorable="d"
+        Title="Harbor simulation v 1.0" BorderThickness="1,1,1,1" WindowStartupLocation="CenterScreen" Height="600" Width="800" MinWidth="1000
+        " MinHeight="600" Background="Black" Icon="/boat.ico">
+    <Viewbox MinWidth="900" MinHeight="600">
+        <Grid x:Name="Main_Grid" Background="#FF020000" Height="auto" MinWidth="900" MinHeight="600" Width="1003">
+
+            <Image x:Name="myImage" HorizontalAlignment="Left" Height="120" Margin="870,430,0,0" VerticalAlignment="Top" Width="120" Stretch="Uniform" Grid.Column="0" Source="/ShipImage.jpg"/>
+            <Button x:Name="Credits_Button" Content="About" HorizontalAlignment="Left" Margin="880,220,0,0" VerticalAlignment="Top" Height="30" Width="85" MouseLeave="MouseLeave_Credits_Button" MouseEnter="MouseEnter_Credits_Button" Click="Credits_Button_Click" Foreground="White" BorderBrush="White">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF0A0000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Reset_Button" Content="Reset" HorizontalAlignment="Left" Margin="880,180,0,0" VerticalAlignment="Top" Height="30" Width="85" MouseLeave="Mouse_Leave_Reset_Button" MouseEnter="MouseEnter_Reset_Button" Click="Reset_Button_Click" Foreground="White" BorderBrush="White">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF080000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Quit_Button" Content="Quit" HorizontalAlignment="Left" Margin="880,260,0,0" VerticalAlignment="Top" Height="30" Width="85" MouseLeave="MouseLeave_Quit_Button" MouseEnter="MouseEnter_QuitButton" Click="Quit_Button_Click" Foreground="White" BorderBrush="White">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF040000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Run_Next_Day_Button" Content="Run next day" HorizontalAlignment="Left" Margin="880,140,0,0" VerticalAlignment="Top" Height="30" Width="85" MouseLeave="MouseLeave_Run_Next_Day_Button" MouseEnter="MouseEnter_Run_Next_Day_Button" Click="Run_Next_Day_Button_Click" Foreground="White" BorderBrush="White" Background="Black" BorderThickness="1,1,1,1"/>
+            <Label x:Name="Menu_Label" Content="MENU" HorizontalAlignment="Left" Margin="892,49,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="White" Background="Transparent"/>
+            <TextBox x:Name="Boats_Per_Day_TextBox" HorizontalAlignment="Left" Margin="903,100,0,0" Text="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" FontSize="16" BorderBrush="White" Foreground="White" Background="Black" Height="26" GotFocus="GotFocus_Boats_Per_Day_Textbox" LostFocus="LostFocus_Boats_Per_Day_TextBox"/>
+            <Label x:Name="Boats_Per_Day_Label" Content="Boats per day:" HorizontalAlignment="Left" Margin="880,75,0,0" VerticalAlignment="Top" Foreground="White" Background="Transparent"/>
+
+            <ListBox x:Name="Info_ListBox" Margin="10,35,0,0" Foreground="White" BorderBrush="Black" HorizontalContentAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Height="135" VerticalContentAlignment="Top">
+                <ListBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF060000" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBox.Background>
+            </ListBox>
+            <Label x:Name="Error_Label" Content="Digits are required as input" HorizontalAlignment="Left" Margin="17,39,0,0" VerticalAlignment="Top" Height="49" Width="303" FontSize="18" Visibility="Hidden" Foreground="Red"/>
+            <ListBox x:Name="Alpha_ListBox" Margin="10,230,140,210" Foreground="White" BorderBrush="Black" HorizontalContentAlignment="Left" Width="800" Height="110" VerticalContentAlignment="Top" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <ListBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF0C0000" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBox.Background>
+            </ListBox>
+            <ListBox x:Name="Beta_ListBox" Margin="10,430,140
+                 ,10" Foreground="White" BorderBrush="Black" HorizontalContentAlignment="Left" Width="800" Height="110" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <ListBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF130000" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBox.Background>
+            </ListBox>
+            <Label x:Name="Harbor_Alpha_Label" Content="Harbor Alpha" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="White" FontSize="14" BorderBrush="White"/>
+            <Label x:Name="Harbor_Beta_Label" Content="Harbor Beta" HorizontalAlignment="Left" Margin="10,375,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Transparent" Foreground="White" FontSize="14" BorderBrush="White"/>
+            <Label x:Name="Alpha_Presentation" Content="" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="800" FontWeight="Bold" Foreground="White"/>
+            <Label x:Name="Beta_Presentation" Content="" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top" Width="800" FontWeight="Bold" Foreground="White"/>
+            <Label x:Name="Info_Label" Content="Information:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold" Foreground="White" FontSize="14" BorderBrush="White"/>
+        </Grid>
+    </Viewbox>
+</Window>
